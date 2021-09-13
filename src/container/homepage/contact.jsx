@@ -54,7 +54,7 @@ const CFormButton = styled.input`
 `;
 
 export function Contact(props) {
-    return <ContactContainer>
+    return <ContactContainer name={"registration"}>
         <ContactTitle>SLC Registration</ContactTitle>
         <Contacthr></Contacthr>
         <ContactForm>

@@ -39,8 +39,14 @@ const Testihr = styled.div`
 const StyledCarouselProvider = styled(CarouselProvider)`
     width: 85%;
 
+    @media screen and (max-width: 770px){
+        width: 80%;
+        height: 70vh;
+        overflow: hidden;
+    }
+
     @media screen and (max-width: 450px){
-        width: 100%;
+        width: 80%;
     }
 `;
 
@@ -76,9 +82,9 @@ const StyledDotGroup = styled(DotGroup)`
 
 export function Testimony(props) {
 
-    const isMobile = useMediaQuery({ query : "(max-width: 450px)" });
+    const isMobile = useMediaQuery({ query : "(max-width: 770px)" });
 
-    return <TestiContainer>
+    return <TestiContainer name="testimony">
         <TestiTitle>Testimonies</TestiTitle>
         <Testih1>Transform Lives</Testih1>
         <Testihr></Testihr>

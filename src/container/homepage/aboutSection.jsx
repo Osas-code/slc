@@ -9,17 +9,27 @@ import { theme } from "../../theme";
 const AboutContainer = styled.div`
     width: 100%;
     display: grid;
-    grid-template-columns: 75% 25%;
-    overflow: hidden;
+    grid-template-columns: 65% 35%;
+
+    @media screen and (max-width: 770px){
+        grid-template-columns: 65% 35%;
+    }
 
     @media screen and (max-width: 450px){
-        grid-template-columns: 100%;
+        display: flex;
+        flex-direction: column-reverse;
     }
 `;
 
 const AboutWhite = styled.div`
     display: flex;
-    padding: 5rem 10rem;
+    padding: 5rem 6rem;
+
+    @media screen and (max-width: 770px){
+        padding: 3rem;
+        flex-direction: column;
+        text-align: center;
+    }
 
     @media screen and (max-width: 450px){
         flex-direction: column;
@@ -32,11 +42,19 @@ const AboutColor = styled.div`
     background: ${theme.secondary};
     padding: 3rem 5rem 3rem 2rem;
     z-index: 1;
-    margin: -2rem;
+    margin: -2rem 0 0;
+
+    @media screen and (max-width: 770px){
+        padding: 3rem 2.8rem;
+        width: 85%;
+        margin -2rem auto 0;
+    }
 
     @media screen and (max-width: 450px){
         text-align: center;
-        padding: 3rem 5rem
+        padding: 3rem 1rem;
+        width: 85%;
+        margin -1.5rem auto 0;
     }
 `;
 
@@ -66,6 +84,10 @@ const Abouthr = styled.div`
     height: .2vh;
     background: #000;
     margin: .3rem 0;
+
+    @media screen and (max-width: 770px){
+        margin: 1rem auto;
+    }
 
     @media screen and (max-width: 450px){
         margin: auto;
@@ -98,7 +120,7 @@ const AboutP2 = styled.p`
 `;
 
 export function AboutSection(props) {
-    return <AboutContainer>
+    return <AboutContainer name={"aboutsection"}>
         <AboutWhite>
             <AboutBox>
                 <AboutImg src={AboutIcon1} />
