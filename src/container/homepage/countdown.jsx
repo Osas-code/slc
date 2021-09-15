@@ -4,11 +4,14 @@ import { theme } from "../../theme"
 import { Marginer } from "../../components/marginer"
 import { CountDownTimer } from "../../components/countdown";
 import { Timer } from "../../components/timerfont";
+import FBackgroundImg from "../../assets/images/footerbg.jpeg"
 
 const CountContainer = styled.div`
-    background: ${theme.primary};
+    width: 100%;
     padding: 3rem 0;
     color: #fff;
+    background-image: url(${FBackgroundImg});
+    background: ${theme.primary};
 `;
 
 const CountWidth = styled.div`
@@ -61,11 +64,11 @@ export function CountDown(props) {
         <CountWidth>
             <CountDownTitle>
                 COUNT DOWN<br />
-                TO SPIRIT LIVE CONVENTION
+                TO SPIRIT LIFE CONVENTION
             </CountDownTitle>
             <Marginer direction="vertical" margin="3rem" />
             <Timer>
-                <CountDownTimer />
+                <CountDownTimer big />
             </Timer>
             <Marginer direction = "vertical" margin = "3rem" />
             <ContactForm>

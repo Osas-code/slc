@@ -18,7 +18,7 @@ const TestiText = styled.div`
 
 const TestiDetails = styled.div`
     margin: 3.5rem 0;
-    color: ${theme.primary};
+    color: ${theme.primary};    
 `;
 
 export function TestiCard(props) {

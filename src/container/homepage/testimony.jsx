@@ -91,10 +91,10 @@ export function Testimony(props) {
         <StyledCarouselProvider naturalSlideWidth = {200} naturalSlideHeight = {200} totalSlides = {4} visibleSlides = { isMobile ? 1 : 3}>
             <Slider>
                 <StyledSlide index={0}>
-                    <TestiCard testiText = "Orci aliquet neque aenean laoreet ipsum faucibus adipiscing. Sit sit scelerisque lacus vitae, netus convallis viverra platea. Ut aenean odio id integer arcu ultricies placerat. Neque, tellus ridiculus urna" testiName = "John Doe" />
+                    <TestiCard testiText = "‘The convention awoke me more to the things of God. And the life of God became more real to me than ever’" testiName = "Adebayo Moses" />
                 </StyledSlide>
                 <StyledSlide index={1}>
-                    <TestiCard testiText = "Orci aliquet neque aenean laoreet ipsum faucibus adipiscing. Sit sit scelerisque lacus vitae, netus convallis viverra platea. Ut aenean odio id integer arcu ultricies placerat. Neque, tellus ridiculus urna" testiName = "John Doe" />
+                    <TestiCard testiText = "Orci aliquet neque aenean laoreet ipsum faucibus adipiscing. Sit sit scelerisque lacus vitae, netus convallis viverra platea. Ut aenean odio id integer arcu ultricies placerat. Neque, tellus ridiculus urna" testiName = "Samuel" />
                 </StyledSlide>
                 <StyledSlide index={2}>
                     <TestiCard testiText = "Orci aliquet neque aenean laoreet ipsum faucibus adipiscing. Sit sit scelerisque lacus vitae, netus convallis viverra platea. Ut aenean odio id integer arcu ultricies placerat. Neque, tellus ridiculus urna" testiName = "John Doe" />

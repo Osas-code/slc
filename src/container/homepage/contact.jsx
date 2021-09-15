@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import { Marginer } from "../../components/marginer";
 import { theme } from "../../theme"
+//import FBackgroundImg from '../../assets/images/footerbg.jpg';
 
 const ContactContainer = styled.div`
     width: 85%;
@@ -53,6 +54,22 @@ const CFormButton = styled.input`
     color: #fff;
 `;
 
+const CFormSpan = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 770px){
+        flex-wrap: wrap;
+    }
+`;
+
+const CFormRadio = styled.input``;
+
+const CFormLabel = styled.p`
+
+`;
+
 export function Contact(props) {
     return <ContactContainer name={"registration"}>
         <ContactTitle>SLC Registration</ContactTitle>
@@ -75,6 +92,14 @@ export function Contact(props) {
                 <Marginer direction = "horizontal" margin = "1rem" />
                 <CFormInput type="text" id="country" name="country" placeholder="Country" />
             </CFormDiv>
+            <Marginer direction = "vertical" margin = "1rem" />
+            <CFormSpan>Not an Akure based, would you like to book an accomodation?
+            <Marginer direction = "vertical" margin = "1rem" /> 
+                <CFormRadio type="radio" id="accom" name="accomadation" value="yes" />
+                <CFormLabel for="male">Yes</CFormLabel>
+                <CFormRadio type="radio" id="accom" name="accomadation" value="no" />
+                <CFormLabel for="male">No</CFormLabel>
+            </CFormSpan>
             <Marginer direction = "vertical" margin = "1rem" />
             <CFormButton type="button" id="submit" name="submit" value="Register for SLC" />
         </ContactForm>

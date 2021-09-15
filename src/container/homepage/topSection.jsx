@@ -1,9 +1,7 @@
-import { CarouselProvider, Slide, Slider } from "pure-react-carousel";
+import { CarouselProvider, DotGroup, Slide, Slider } from "pure-react-carousel";
 import React from "react"
-import { useMediaQuery } from "react-responsive";
 import styled from "styled-components"
 import BackgroundImage from "../../assets/images/background.png"
-import { Marginer } from "../../components/marginer";
 import { Button } from "../../components/button";
 import { scroller } from "react-scroll";
 
@@ -13,11 +11,11 @@ const TopContainer = styled.div`
     padding: 0;
 
     @media screen and (max-width: 770px) {
-        height: 70vh;
+        height: 80vh;
     }
 
     @media screen and (max-width: 450px) {
-        height: 70vh;
+        height: 80vh;
     }
 `;
 
@@ -25,11 +23,11 @@ const StyledCarouselProvider = styled(CarouselProvider)`
     width: 100%;
 
     @media screen and (max-width: 450px) {
-        height: 70vh;
+        height: 80vh;
     }
 
     @media screen and (max-width: 770px) {
-        height: 70vh;
+        height: 80vh;
     }
 
 `;
@@ -42,8 +40,13 @@ const StyledSlide = styled(Slide)`
 `;
 
 const BCarousel = styled.div`
-    
+    width: 100%;
+    height: 85%;
+    align-items: center;
 
+    @media screen and (max-width: 770px) {
+        height: 80vh;
+    }
 `;
 
 const CarouselImg = styled.img`
@@ -51,31 +54,31 @@ const CarouselImg = styled.img`
    height: 85vh;
 
    @media screen and (max-width: 450px) {
-    height: 70vh;
+    height: 80vh;
 }
 
 @media screen and (max-width: 770px) {
-    height: 70vh;
+    height: 80vh;
 }
 
 `;
 
 const CarouselContent = styled.div`
-    width: 45%;
-    margin: -35% auto 0 auto;
-    padding: 1rem;
+    width: 65%;
+    margin: -25% auto;
     text-align: center;
     color: #fff;
+    align-items: center;
 
     @media screen and (max-width: 770px) {
         width: 70%;
-        margin: -45% auto 0 auto;
+        margin: -60% auto;
         padding: 0;
     }
 
     @media screen and (max-width: 450px){
-        width: 90%;
-        margin: -75% auto 0 auto;
+        width: 70%;
+        margin: -60% auto;
         padding: 0;
     }
 
@@ -89,7 +92,25 @@ const CarouselHeader = styled.h1`
     }
 
     @media screen and (max-width: 450px) {
-        font-size: 25px;
+        font-size: 30px;
+    }
+`;
+
+const StyledDotGroup = styled(DotGroup)`
+    button{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #e4e4e4;
+        border: none;
+        outline: none;
+        &:not(:last-of-type){
+            margin-left: 10px;
+        }
+    }
+
+    .carousel__dot--selected{
+        background: $(theme.primary);
     }
 `;
 
@@ -106,22 +127,26 @@ const CarouselText = styled.p`
 `;
 
 const TopButton = styled.button`
-    position: absolute;
-    left: 88%;
-    top: 85%;
-    background: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    box-shadow: 0 2px 19px #0000000F;
     border: none;
+    pointer: cursor;
 
     @media screen and (max-width: 770px){
-        left: 70%;
-        top: 70%;
+        bottom: 20px;
+        right: 20px;
+        background: none;
     }
 
     @media screen and (max-width: 450px){
-        left: 50%;
-        top: 70%;
+        bottom: 20px;
+        right: 20px;
     }
 `;
+
 
 
 export function TopSection(props) {
@@ -139,9 +164,8 @@ export function TopSection(props) {
                     <BCarousel>
                         <CarouselImg src={BackgroundImage} />
                         <CarouselContent>
-                            <CarouselHeader>Dictum nulla id sed arcu</CarouselHeader>
-                            <Marginer direction = "vertical" margin= "3rem" />
-                            <CarouselText>Risus, egestas dui sit vulputate enim ornare morbi enim, congue. Libero hendrerit purus orci tellus pretium vel lacus augue arcu. Eu mauris a, id scelerisque quis ipsum. In iaculis non praesent turpis. Sagittis urna vel bibendum ornare gravida lectus diam.</CarouselText>
+                            <CarouselHeader>Animate </CarouselHeader>
+                            <CarouselText>Create the glorifying presence of the Lord with the help of the Holy Spirit</CarouselText>
                         </CarouselContent>
                     </BCarousel>
                 </StyledSlide>
@@ -149,8 +173,8 @@ export function TopSection(props) {
                     <BCarousel>
                         <CarouselImg src={BackgroundImage} />
                         <CarouselContent>
-                            <CarouselHeader>Dictum nulla id sed arcu</CarouselHeader>
-                            <CarouselText>Risus, egestas dui sit vulputate enim ornare morbi enim, congue. Libero hendrerit purus orci tellus pretium vel lacus augue arcu. Eu mauris a, id scelerisque quis ipsum. In iaculis non praesent turpis. Sagittis urna vel bibendum ornare gravida lectus diam.</CarouselText>
+                            <CarouselHeader>Revitalize</CarouselHeader>
+                            <CarouselText>Restore energy and get set up to do greater things and make bigger things happen for God’s kingdom on Earth</CarouselText>
                         </CarouselContent>
                     </BCarousel>
                 </StyledSlide>
@@ -158,8 +182,8 @@ export function TopSection(props) {
                     <BCarousel>
                         <CarouselImg src={BackgroundImage} />
                         <CarouselContent>
-                            <CarouselHeader>Dictum nulla id sed arcu</CarouselHeader>
-                            <CarouselText>Risus, egestas dui sit vulputate enim ornare morbi enim, congue. Libero hendrerit purus orci tellus pretium vel lacus augue arcu. Eu mauris a, id scelerisque quis ipsum. In iaculis non praesent turpis. Sagittis urna vel bibendum ornare gravida lectus diam.</CarouselText>
+                            <CarouselHeader>Vivify</CarouselHeader>
+                            <CarouselText>Become more alive through the Life of Christ within you.</CarouselText>
                         </CarouselContent>
                     </BCarousel>
                 </StyledSlide>
@@ -167,8 +191,8 @@ export function TopSection(props) {
                     <BCarousel>
                         <CarouselImg src={BackgroundImage} />
                         <CarouselContent>
-                            <CarouselHeader>Dictum nulla id sed arcu</CarouselHeader>
-                            <CarouselText>Risus, egestas dui sit vulputate enim ornare morbi enim, congue. Libero hendrerit purus orci tellus pretium vel lacus augue arcu. Eu mauris a, id scelerisque quis ipsum. In iaculis non praesent turpis. Sagittis urna vel bibendum ornare gravida lectus diam.</CarouselText>
+                            <CarouselHeader>Vivify</CarouselHeader>
+                            <CarouselText>Become more alive through the Life of Christ within you.</CarouselText>
                         </CarouselContent>
                     </BCarousel>
                 </StyledSlide>

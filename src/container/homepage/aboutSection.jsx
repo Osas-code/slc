@@ -9,7 +9,8 @@ import { theme } from "../../theme";
 const AboutContainer = styled.div`
     width: 100%;
     display: grid;
-    grid-template-columns: 65% 35%;
+    grid-template-columns: 60% 40%;
+    align-items: center;
 
     @media screen and (max-width: 770px){
         grid-template-columns: 65% 35%;
@@ -45,7 +46,7 @@ const AboutColor = styled.div`
     margin: -2rem 0 0;
 
     @media screen and (max-width: 770px){
-        padding: 3rem 2.8rem;
+        padding: 3rem 2rem;
         width: 85%;
         margin -2rem auto 0;
     }
@@ -63,7 +64,7 @@ const AboutBox = styled.div`
 `;
 
 const AboutImg = styled.img`
-    width: 2.5rem;
+    width: 3.5rem;
 `;
 
 const Abouth3 = styled.h3`
@@ -102,8 +103,8 @@ const AboutP = styled.p`
 const Abouth2 = styled.h2`
     font-size: 24px;
     
-    @media screen and (max-width: 450px){
-        
+    @media screen and (max-width: 770px){
+        font-size: 18px;
     }
 `;
 
@@ -111,6 +112,10 @@ const AboutSpan = styled.p`
     font-size: 28px;
     color: #fff;
     padding: .3rem 0;
+
+    @media screen and (max-width: 770px){
+        font-size: 22px;
+    }
 `;
 
 const AboutP2 = styled.p`
@@ -125,24 +130,24 @@ export function AboutSection(props) {
             <AboutBox>
                 <AboutImg src={AboutIcon1} />
                 <Abouth3>Prayer</Abouth3>
-                <Abouth4>Eget imperdiet</Abouth4>
+                <Abouth4>Cultivate a Presence </Abouth4>
                 <Abouthr></Abouthr>
-                <AboutP>Luctus eget neque eget scelerisque. Sapien ut scelerisque sagittis hac viverra dui.</AboutP>
+                <AboutP>Holy Spirit guided thanksgiving and conversations with God our father (Philippians 4:6-7).</AboutP>
             </AboutBox>
             <Marginer direction = "vertical" margin = "5rem" />
             <AboutBox>
                 <AboutImg src={AboutIcon2} />
                 <Abouth3>Word</Abouth3>
-                <Abouth4>Eget imperdiet</Abouth4>
+                <Abouth4>Learn the Ways</Abouth4>
                 <Abouthr></Abouthr>
-                <AboutP>Luctus eget neque eget scelerisque. Sapien ut scelerisque sagittis hac viverra dui.</AboutP>
+                <AboutP>Holy Spirit inspired in-depth teaching of the Bible (2 Timothy 3:16-17)</AboutP>
             </AboutBox>
             <AboutBox>
                 <AboutImg src={AboutIcon3} />
                 <Abouth3>Miracle</Abouth3>
-                <Abouth4>Eget imperdiet</Abouth4>
+                <Abouth4>Experience the Acts of God</Abouth4>
                 <Abouthr></Abouthr>
-                <AboutP>Luctus eget neque eget scelerisque. Sapien ut scelerisque sagittis hac viverra dui.</AboutP>
+                <AboutP>Extraordinary spiritual operations producing naturally and scientifically confirmed results (Jeremiah 32:27)</AboutP>
             </AboutBox>
         </AboutWhite>
         <AboutColor>
