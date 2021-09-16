@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Marginer } from "../marginer"
 
 const CountContainer = styled.div`
-
+    width: 20%;
 `;
 
-const TimerContainer = styled.div``;
+const TimerContainer = styled.div`
+    
+`;
 
 const Timer = styled.div`
     display: flex;
@@ -20,11 +22,28 @@ const TimerDiv = styled.div`
 `;
 
 const TimerP = styled.p`
+    font-size: 6rem;
+
+    @media screen and (max-width: 770px) {
+        font-size: 2.7rem;
+    }
 `;
 
-const TimerSpan = styled.div``;
+const TimerSpan = styled.div`
+    font-size: 1.5rem;
+    @media screen and (max-width: 770px) {
+        font-size: .7rem;
+    }
+`;
 
 const TimerCol = styled.div`
+    font-size: 6rem;
+    margin: 0 2rem;
+
+    @media screen and (max-width: 770px) {
+        font-size: 2.7rem;
+        margin: 0 1rem;
+    }
 `;
 
 export function CountDownTimer(props) {
@@ -36,7 +55,7 @@ export function CountDownTimer(props) {
     let interval = useRef();
 
     const startTimer = () => {
-        const countdownDate = new Date('November 13, 2021 00:00:00').getTime();
+        const countdownDate = new Date('November 5, 2021 00:00:00').getTime();
 
         interval = setInterval(() => {
             const now = new Date().getTime();

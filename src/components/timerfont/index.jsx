@@ -5,7 +5,7 @@ import { theme } from '../../theme';
 const TimerSize = styled.div`
     font-size: ${({ small }) => small ? '1px' : '3rem'};
 
-    @media screen and (max-width: 450px){
+    @media screen and (max-width: 770px){
         font-size: ${({ small }) => small ? '1px' : '1.3rem'};
     }
 `;

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import styled from "styled-components"
+import React, { useEffect, useRef, useState } from 'react'
+import styled, { css } from "styled-components"
 import { theme } from '../../theme';
 import { Button } from '../button';
 import { CountDownTimer } from '../countdown';
@@ -11,15 +11,20 @@ import { scroller } from 'react-scroll';
 const NavbarContainer = styled.div`
     width: 100%;
     background: #fff;
+    box-shadow: 0 2px 19px #0000000F;
     padding: .8rem 0;
+    position: fixed;
+    top: 0;
+    z-index: 999;
 `;
 
 const NavbarWidth = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 95%;
+    width: 85%;
     margin: auto;
+    display: flex;
+    justify-content: space between;
+    flex-wrap: wrap;
+    align-items: center;
 
     .Navmenu{
         display: flex;
@@ -30,6 +35,7 @@ const NavbarWidth = styled.div`
     }
 
     @media screen and (max-width: 770px){
+        width: 90%;
         justify-content: space-between;
 
         .Navmenu{
@@ -87,7 +93,7 @@ export const MenuIcon = styled.div`
     color: ${theme.secondary};
     display: none;
 
-    @media screen and (max-width: 450px){
+    @media screen and (max-width: 770px){
         display: block;
         position: absolute;
         top: 0;
@@ -98,7 +104,54 @@ export const MenuIcon = styled.div`
     }
 `
 
+const Timer = styled.div`
+    display: flex;
+
+    @media screen and (max-width: 770px) {
+        margin: 0 7rem 0 0;
+    }
+`;
+
+const TimerDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const TimerP = styled.p`
+    font-size: 1rem;
+
+    @media screen and (max-width: 770px) {
+        font-size: 1.5rem; 
+    }
+`;
+
+const TimerSpan = styled.div`
+    font-size: .8rem;
+
+    @media screen and (max-width: 770px) {
+        font-size: .5rem;
+    }
+`;
+
+const TimerCol = styled.div`
+    font-size: 1.5rem;
+    margin: 0 1.2rem;
+
+    @media screen and (max-width: 770px) {
+        font-size: 1.5rem; 
+        margin: 0 .5rem;
+    }
+`;
+
+const CountdownWidth = styled.div`
+    width: 20%;
+    font-size: 1rem;
+`;
+
 export function Navbar(props){
+    const { small } = props;
 
     const [click, setClick] = useState(false)
     const [dropdown, setDropdown] = useState(false)
@@ -117,10 +170,53 @@ export function Navbar(props){
         scroller.scrollTo('registration', { smooth: true, duration: 1500});
     };
 
+
+    //timer
+
+    const [timerDays, setTimerDays] = useState('00');
+    const [timerHours, setTimerHours] = useState('00');
+    const [timerMinutes, setTimerMinutes] = useState('00');
+    const [timerSeconds, setTimerSeconds] = useState('00');
+
+    let interval = useRef();
+
+    const startTimer = () => {
+        const countdownDate = new Date('November 5, 2021 00:00:00').getTime();
+
+        interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (distance < 0) {
+                //stop timer
+                clearInterval(interval.current);
+            }else{
+                //update timer
+                setTimerDays(days);
+                setTimerHours(hours);
+                setTimerMinutes(minutes);
+                setTimerSeconds(seconds);
+            }
+        }, 1000);
+    };
+
+    useEffect(() => {
+        startTimer();
+        return () => {
+            clearInterval(interval.current);
+        }
+    });
+
+
     return <NavbarContainer>
         <NavbarWidth>
             <Logo />
-            <Marginer direction = 'horizontal' margin="15rem" />
+            <Marginer direction = 'horizontal' margin="rem" />
             <NavbarLinks className={click ? 'Navmenu Active' : 'NavMenu'}>
                 <NavbarLinkLi onClick={scrollToAbout}>
                     About SLC
@@ -139,8 +235,34 @@ export function Navbar(props){
                 </NavbarLinkLi>
                 <Marginer direction = 'horizontal' margin="3rem" />
             </NavbarLinks>
-            <CountDownTimer/>
-            <Marginer direction = 'horizontal' margin="10rem" />
+            <Timer>
+                <TimerDiv>
+                    <TimerP>{timerDays}</TimerP>
+                    <TimerSpan>Days</TimerSpan>
+                </TimerDiv>
+                <Marginer direction="horizontal" margin=".2rem" />
+                <TimerCol>:</TimerCol>
+                <Marginer direction="horizontal" margin=".2rem" />
+                <TimerDiv>
+                    <TimerP>{timerHours}</TimerP>
+                    <TimerSpan>Hours</TimerSpan>
+                </TimerDiv>
+                <Marginer direction="horizontal" margin=".2rem" />
+                <TimerCol>:</TimerCol>
+                <Marginer direction="horizontal" margin=".2rem" />
+                <TimerDiv>
+                    <TimerP>{timerMinutes}</TimerP>
+                    <TimerSpan>Minutes</TimerSpan>
+                </TimerDiv>
+                <Marginer direction="horizontal" margin=".2rem" />
+                <TimerCol>:</TimerCol>
+                <Marginer direction="horizontal" margin=".2rem" />
+                <TimerDiv>
+                    <TimerP>{timerSeconds}</TimerP>
+                    <TimerSpan>Seconds</TimerSpan>
+                </TimerDiv>
+            </Timer>
+
             <MenuIcon onClick={handleClick}>
                 {click ? <FaTimes /> : <FaBars />}
             </MenuIcon>

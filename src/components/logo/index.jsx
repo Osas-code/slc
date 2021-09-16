@@ -6,6 +6,11 @@ import PneumaLogo from "../../assets/logo/pneuma_logo.png"
 const LogoContainer = styled.div`
     font-size: .8rem;
     color: ${theme.secondary};
+    margin-right: 13rem;
+
+    @media screen and (max-width: 770px){
+        margin-right: 0;
+    }
 `;
 
 const LogoImage = styled.img`
