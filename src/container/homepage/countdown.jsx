@@ -8,10 +8,16 @@ import FBackgroundImg from "../../assets/images/footerbg.jpeg"
 
 const CountContainer = styled.div`
     width: 100%;
-    padding: 3rem 0;
     color: #fff;
     background-image: url(${FBackgroundImg});
-    background: ${theme.primary};
+    background-repeat: no-repeat;
+    background-size: cover;
+`;
+
+const BackgroundFilter = styled.div`
+    width: 100%;
+    padding: 3rem 0;
+    background-color: rgba(128, 26, 73, 0.7);
 `;
 
 const CountWidth = styled.div`
@@ -61,27 +67,29 @@ const CFormButton = styled.input`
 
 export function CountDown(props) {
     return <CountContainer>
-        <CountWidth>
-            <CountDownTitle>
-                COUNT DOWN<br />
-                TO SPIRIT LIFE CONVENTION
-            </CountDownTitle>
-            <Marginer direction="vertical" margin="3rem" />
-            <Timer>
-                <CountDownTimer big />
-            </Timer>
-            <Marginer direction = "vertical" margin = "3rem" />
-            <ContactForm>
-                <CFormDiv>
-                    <CFormInput type="text" id="fname" name="fname" placeholder="First name" />
-                    <Marginer direction = "horizontal" margin = "1rem" />
-                    <CFormInput type="text" id="lname" name="lname" placeholder="Last name" />
-                </CFormDiv>
-                <Marginer direction = "vertical" margin = "1rem" />
-                <CFormInput type="email" id="email" name="email" placeholder="Email address" />
-                <Marginer direction = "vertical" margin = "1rem" />
-                <CFormButton type="button" id="submit" name="submit" value="Register for SLC" />
-        </ContactForm>
+        <BackgroundFilter>
+            <CountWidth>
+                <CountDownTitle>
+                    COUNT DOWN<br />
+                    TO SPIRIT LIFE CONVENTION
+                </CountDownTitle>
+                <Marginer direction="vertical" margin="3rem" />
+                <Timer>
+                    <CountDownTimer big />
+                </Timer>
+                <Marginer direction = "vertical" margin = "3rem" />
+                <ContactForm>
+                    <CFormDiv>
+                        <CFormInput type="text" id="fname" name="fname" placeholder="First name" />
+                        <Marginer direction = "horizontal" margin = "1rem" />
+                        <CFormInput type="text" id="lname" name="lname" placeholder="Last name" />
+                    </CFormDiv>
+                    <Marginer direction = "vertical" margin = "1rem" />
+                    <CFormInput type="email" id="email" name="email" placeholder="Email address" />
+                    <Marginer direction = "vertical" margin = "1rem" />
+                    <CFormButton type="button" id="submit" name="submit" value="Register for SLC" />
+            </ContactForm>
         </CountWidth>
+        </BackgroundFilter>
     </CountContainer>
 }

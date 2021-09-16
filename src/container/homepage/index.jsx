@@ -12,7 +12,7 @@ const PageContainer = styled.div`
     background: #E5E5E5;
 `;
 
-export function HomePage(props) {
+export default function HomePage(props) {
     return <PageContainer>
         <Navbar />
         <TopSection />
